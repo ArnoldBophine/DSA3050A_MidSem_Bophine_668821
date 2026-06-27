@@ -49,6 +49,7 @@ Management requires a comprehensive Business Intelligence dashboard to analyze g
 The following columns were renamed to improve clarity and readability:
 
 | Original Name | Renamed To |
+|---|---|
 | Segment | Customer Segment |
 | State | State/Province |
 | Sales | Sales (USD) |
@@ -65,6 +66,7 @@ The following columns were renamed to improve clarity and readability:
 Data types were set correctly for all 23 columns:
 
 | Column | Data Type Set |
+|---|---|
 | Row ID | Whole Number |
 | Order Date | Date |
 | Ship Date | Date |
@@ -81,13 +83,13 @@ Data types were set correctly for all 23 columns:
 
 ![Remove_Duplicate_Records.png](Screenshots/Remove_Duplicate_Records.png)
 
-All columns were selected (Ctrl+A) and duplicates were removed using Home → Remove Rows → Remove Duplicates. The dataset contained 0 exact duplicate records; the step is confirmed in Applied Steps as **"Removed Duplicates"**.
+All columns were selected (Ctrl+A) and duplicates were removed using Home > Remove Rows > Remove Duplicates. The dataset contained 0 exact duplicate records; the step is confirmed in Applied Steps as **"Removed Duplicates"**.
 
 #### Task 4 — Removing Blank Rows
 
 ![Remove_Blank_Rows.png](Screenshots/Remove_Blank_Rows.png)
 
-Blank rows were removed using Home → Remove Rows → Remove Blank Rows. This ensures no fully empty records exist in the cleaned dataset. The step appears in Applied Steps as **"Removed Blank Rows"**.
+Blank rows were removed using Home > Remove Rows > Remove Blank Rows. This ensures no fully empty records exist in the cleaned dataset. The step appears in Applied Steps as **"Removed Blank Rows"**.
 
 #### Task 5 — Trim and Clean Text Columns
 
@@ -98,7 +100,7 @@ The following text columns were trimmed and cleaned to remove leading/trailing s
 
 - Customer Name, Product Name, City, State/Province, Country, Region, Market, Ship Mode, Customer Segment, Category, Sub-Category, Order Priority
 
-**How it was done:** Selected all text columns using Ctrl+Click → Transform tab → Format → Trim, then Format → Clean. Steps appear as **"Trimmed Text"** and **"Cleaned Text"** in Applied Steps.
+**How it was done:** Selected all text columns using Ctrl+Click > Transform tab > Format > Trim, then Format > Clean. Steps appear as **"Trimmed Text"** and **"Cleaned Text"** in Applied Steps.
 
 #### Task 6 — Replacing Inconsistent Values
 
@@ -111,7 +113,7 @@ The **Market** column contained the value "US" which was inconsistent with the f
 | ------ | ---- | ------------- |
 | Market | US   | United States |
 
-**How it was done:** Clicked the Market column → Transform → Replace Values → entered "US" and "United States". Step appears as **"Replaced Value"** in Applied Steps.
+**How it was done:** Clicked the Market column > Transform > Replace Values > entered "US" and "United States". Step appears as **"Replaced Value"** in Applied Steps.
 
 #### Task 7 — Removing Unnecessary Columns
 
@@ -119,7 +121,7 @@ The **Market** column contained the value "US" which was inconsistent with the f
 
 The **Postal Code** column was removed because 41,296 of 51,290 values (80.5%) were null, making the column analytically useless for business intelligence purposes.
 
-**How it was done:** Right-clicked the Postal Code column header → Remove. Step appears as **"Removed Columns"** in Applied Steps.
+**How it was done:** Right-clicked the Postal Code column header > Remove. Step appears as **"Removed Columns"** in Applied Steps.
 
 ### B. Intermediate Transformations
 
@@ -133,7 +135,7 @@ The **Product ID** column (e.g., "FUR-BO-10001798") was split by the "-" delimit
 - Product Sub-Code (e.g., "BO")
 - Product Number (e.g., "10001798")
 
-**How it was done:** Selected the Product ID column → Transform → Split Column → By Delimiter → Custom "-" → Each occurrence of the delimiter.
+**How it was done:** Selected the Product ID column > Transform > Split Column > By Delimiter > Custom "-" > Each occurrence of the delimiter.
 
 #### Task 9 — Merging Two or More Columns
 
@@ -141,7 +143,7 @@ The **Product ID** column (e.g., "FUR-BO-10001798") was split by the "-" delimit
 
 The **City** and **Country** columns were merged into a new column named **"City, Country"** using a comma-space separator (e.g., "New York, United States"). This column is used in the Map visual tooltip.
 
-**How it was done:** Ctrl+Click City and Country → Add Column → Merge Columns → Custom separator ", ".
+**How it was done:** Ctrl+Click City and Country > Add Column > Merge Columns > Custom separator ", ".
 
 #### Task 10 — Creating a Custom Column
 
@@ -155,7 +157,7 @@ A custom column named **"Net Revenue (USD)"** was created using the formula:
 
 This column shows the revenue remaining after logistics costs are deducted, providing a cleaner profitability indicator.
 
-**How it was done:** Add Column → Custom Column → entered the formula above.
+**How it was done:** Add Column > Custom Column > entered the formula above.
 
 #### Task 11 — Creating a Conditional Column
 
@@ -170,7 +172,7 @@ A conditional column named **"Profit Status"** was created with the following lo
 | Profit (USD) = 0 | "Break-Even" |
 | Profit (USD) < 0 | "Loss"       |
 
-**How it was done:** Add Column → Conditional Column → configured the three rules above.
+**How it was done:** Add Column > Conditional Column > configured the three rules above.
 
 #### Task 12 — Extracting Year, Month, Quarter, and Day from a Date Column
 
@@ -198,7 +200,7 @@ Rows were filtered using two conditions to remove zero-value anomaly records:
 - **Condition 1:** Sales (USD) > 0
 - **Condition 2:** Quantity > 0
 
-**How it was done:** Clicked the dropdown on Sales (USD) → Number Filters → Greater Than → 0, then repeated for Quantity. Steps appear as **"Filtered Rows"** and **"Filtered Rows1"** in Applied Steps.
+**How it was done:** Clicked the dropdown on Sales (USD) > Number Filters > Greater Than > 0, then repeated for Quantity. Steps appear as **"Filtered Rows"** and **"Filtered Rows1"** in Applied Steps.
 
 #### Task 14 — Sorting Data Meaningfully
 
@@ -214,7 +216,7 @@ The dataset was sorted by **Order Date** in ascending order (oldest to newest �
 
 An Index column starting from 1 was added and renamed **"Record ID"** to uniquely identify each cleaned row in the dataset.
 
-**How it was done:** Add Column → Index Column → From 1 → renamed to "Record ID". Step appears as **"Added Index"** in Applied Steps.
+**How it was done:** Add Column > Index Column > From 1 > renamed to "Record ID". Step appears as **"Added Index"** in Applied Steps.
 
 ### C. Advanced Power Query Tasks
 
@@ -234,7 +236,7 @@ A duplicate of the main query was created and named **"Sales_by_Market_Category"
 
 **Result:** 21 rows showing sales and profit performance by market-category combination.
 
-**How it was done:** Right-clicked main query → Duplicate → renamed → Home → Group By → Advanced → configured 4 aggregations. Step appears as **"Grouped Rows"** in the Sales_by_Market_Category query Applied Steps.
+**How it was done:** Right-clicked main query > Duplicate > renamed > Home > Group By > Advanced > configured 4 aggregations. Step appears as **"Grouped Rows"** in the Sales_by_Market_Category query Applied Steps.
 
 #### Advanced Task 2 — Creating a Date Table
 
@@ -254,7 +256,7 @@ Columns generated:
 
 The list was converted to a table and all date columns were added using Add Column → Date options.
 
-#### Advanced Task 3 — Create a Parameter and Use It to Filter Data
+#### Advanced Task 3 - Creating a Parameter and Use It to Filter Data
 
 ![parameter.png](Screenshots/parameter.png)
 
@@ -266,7 +268,7 @@ A parameter named **"MinSalesThreshold"** was created with the following propert
 
 The parameter was then used to filter the main query so only rows where Sales (USD) ≥ MinSalesThreshold are included. This allows dynamic threshold adjustment without re-editing the query.
 
-**How it was done:** Home → Manage Parameters → New Parameter → configured as above → applied as a filter on the Sales (USD) column.
+**How it was done:** Home > Manage Parameters > New Parameter > configured as above > applied as a filter on the Sales (USD) column.
 
 #### Advanced Task 4 — Use Column Profiling to Identify Data Quality Issues
 
@@ -283,39 +285,25 @@ Column Profiling was enabled via View → Column Distribution, Column Quality, a
 | Sales (USD)   | Right-skewed distribution (mean$246, max $22,638)              |
 | Order Date    | 644 distinct values, 399 unique — valid date range            |
 
-#### Advanced Task 5 — Extract Text Before a Delimiter
+#### Advanced Task 5 - Extracting Text Before a Delimiter
 
 ![extract_delimiter.png](Screenshots/extract_delimiter.png)
 
 A new column **"Order Region Code"** was created by extracting text before the first "-" delimiter in the **Order ID** column.
 
-Example: "CA-2011-100006" → "CA"
+Example: "CA-2011-100006" > "CA"
 
 This exposes the geographic region code embedded in each Order ID, useful for regional grouping and analysis.
 
-**How it was done:** Selected Order ID column → Add Column → Extract → Text Before Delimiter → entered "-".
-
-### Power Query Evidence Summary
+**How it was done:** Selected Order ID column > Add Column > Extract > Text Before Delimiter > entered "-".
 
 
-| Screenshot                  | What It Shows                                                 |
-| --------------------------- | ------------------------------------------------------------- |
-| `raw_datase.png`            | Dataset as imported — all 24 original columns, unmodified    |
-| `power_query_editor.png`    | Full Power Query Editor view                                  |
-| `Power_Query_editor...png`  | Power Query Editor with Applied Steps visible                 |
-| `applied_steps.png`         | Applied Steps pane showing all transformation steps           |
-| `column_profile.png`        | Column profiling results (distribution, quality, statistics)  |
-| `final_cleaned_dataset.png` | Final cleaned dataset preview (23 columns)                    |
-| `groupby_task.png`          | Advanced Task 1 — Group By result (Sales_by_Market_Category) |
-| `date_table.png`            | Advanced Task 2 — Date Table query                           |
-| `parameter.png`             | Advanced Task 3 — MinSalesThreshold parameter                |
-| `extract_delimiter.png`     | Advanced Task 5 — Order Region Code extraction               |
 
 ## Question 2: Power BI Dashboard Development
 
 The dashboard was built across **2 report pages** in Power BI Desktop.
 
-### Page 1 — Sales Overview
+### Page 1 - Sales Overview
 
 ![Dashboard page one](<Screenshots/Dashboard page one.png>)
 
@@ -323,9 +311,9 @@ The dashboard was built across **2 report pages** in Power BI Desktop.
 
 - APAC leads all markets with $3.5M in sales, followed by EU ($2.9M)
 - Technology is the top revenue category ($4.7M), followed by Furniture ($4.1M) and Office Supplies ($3.4M)
-- Sales show consistent year-on-year growth: $2.2M (2011) → $2.6M (2012) → $3.3M (2013) → $4.1M (2014)
+- Sales show consistent year-on-year growth: $2.2M (2011) > $2.6M (2012) > $3.3M (2013) > $4.1M (2014)
 
-### Page 2 — Detailed Analysis
+### Page 2 - Detailed Analysis
 
 ![Dashboard page two](<Screenshots/Dashboard page two.png>)
 
@@ -362,7 +350,7 @@ Three slicers were placed on Page 1 of the dashboard:
 
 Drill-down was enabled on the **Line Chart — Sales Trend** visual. The Order Date hierarchy allows navigation through:
 
-**Year → Quarter → Month → Day**
+**Year > Quarter > Month > Day**
 
 The drill-down arrow (↓) was activated in the visual header. Clicking any data point on the line chart drills into that period's sub-level detail.
 
@@ -374,14 +362,14 @@ Cross-filtering is active across all visuals on both pages. Selecting a value in
 
 ## Three Business Insights
 
-### Insight 1 — APAC is the Highest Revenue Market but the United States Leads in Order Volume
+### Insight 1: APAC is the Highest Revenue Market but the United States Leads in Order Volume
 
-The Bar Chart reveals that APAC generates the highest total sales at $3.5M, ahead of EU ($2.9M) and United States ($2.2M). However, when the Market slicer is set to United States and the Matrix visual is examined, the US leads in the number of individual orders — particularly in Office Supplies. This suggests that the US has a high-frequency, lower-value transaction pattern, while APAC generates fewer but higher-value orders. Management should consider a premium upsell strategy in APAC and a volume-efficiency strategy in the US to optimize both markets.
+The Bar Chart reveals that APAC generates the highest total sales at $3.5M, ahead of EU ($2.9M) and United States ($2.2M). However, when the Market slicer is set to United States and the Matrix visual is examined, the US leads in the number of individual orders - particularly in Office Supplies. This suggests that the US has a high-frequency, lower-value transaction pattern, while APAC generates fewer but higher-value orders. Management should consider a premium upsell strategy in APAC and a volume-efficiency strategy in the US to optimize both markets.
 
-### Insight 2 — Consumer Segment Dominates Orders but Corporate Clients Drive Higher Per-Order Value
+### Insight 2: Consumer Segment Dominates Orders but Corporate Clients Drive Higher Per-Order Value
 
 The Donut Chart shows that the Consumer segment accounts for 51.65% of all orders (16,770 orders), while Corporate holds 30.22% (9,810 orders) and Home Office 18.13% (5,890 orders). However, when filtering by Corporate in the Category slicer and reviewing the Table Visual, Corporate orders tend to involve higher-value Technology products. This means Corporate customers, despite fewer orders, contribute disproportionately to revenue per transaction. A targeted account management programme for Corporate clients could yield significant profit growth without requiring large volumes.
 
-### Insight 3 — Sales Are Growing Year-on-Year but Profitability Growth is Lagging
+### Insight 3: Sales Are Growing Year-on-Year but Profitability Growth is Lagging
 
-The Line Chart shows clear, consistent revenue growth from $2.2M in 2011 to $4.1M in 2014 — an 86% increase over 4 years. However, comparing Total Sales ($12.19M) against Total Profit ($1.45M) on the KPI cards reveals an overall profit margin of only approximately 11.9%. The Profit by Sub-Category visual (Additional Visual 1) shows that several sub-categories like Bookcases and Storage record very low or negative profit margins. This indicates that while the business is growing in sales volume, cost management — particularly around discounting and shipping costs — needs urgent attention to ensure that revenue growth translates into proportional profit growth.
+The Line Chart shows clear, consistent revenue growth from $2.2M in 2011 to $4.1M in 2014 - an 86% increase over 4 years. However, comparing Total Sales ($12.19M) against Total Profit ($1.45M) on the KPI cards reveals an overall profit margin of only approximately 11.9%. The Profit by Sub-Category visual (Additional Visual 1) shows that several sub-categories like Bookcases and Storage record very low or negative profit margins. This indicates that while the business is growing in sales volume, cost management - particularly around discounting and shipping costs — needs urgent attention to ensure that revenue growth translates into proportional profit growth.
